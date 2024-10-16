@@ -1,0 +1,7 @@
+SELECT ORDER_TB.CNT, Employees.FIRSTNAME
+FROM (SELECT EmployeeID, COUNT(OrderID) AS CNT
+	FROM Orders
+	GROUP BY EmployeeID) AS ORDER_TB INNER JOIN Employees
+    ON ORDER_TB.EmployeeID = Employees.EmployeeID
+ORDER BY	ORDER_TB.CNT
+;
